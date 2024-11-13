@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/cs465finalproj.iml" filepath="$PROJECT_DIR$/.idea/cs465finalproj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/readsbs.iml" filepath="$PROJECT_DIR$/.idea/modules/readsbs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/readsbs.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/readsbs.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/readsbs.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/readsbs.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/readsbs.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/readsbs.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/readsbs.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/readsbs.app.unitTest.iml" />
     </modules>
   </component>
 </project>
