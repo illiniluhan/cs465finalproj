@@ -51,20 +51,25 @@ public class LoginActivity extends AppCompatActivity {
     private void loginUser() {
         String username = usernameField.getText().toString().trim();
         String password = passwordField.getText().toString().trim();
-        username = username + "@465.com"; // Convert username to email
+        String email = username + "@465.com"; // Convert username to email
 
         if (username.isEmpty() || password.isEmpty()) {
             displayErrorMessage("Please enter both username and password.");
             return;
         }
 
-        auth.signInWithEmailAndPassword(username, password)
+        auth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                        finish();
+                        FirebaseUser user = auth.getCurrentUser();
+                        if (user != null) {
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.putExtra("username", username);
+                            Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                            startActivity(intent);
+                            finish();
+                        }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
