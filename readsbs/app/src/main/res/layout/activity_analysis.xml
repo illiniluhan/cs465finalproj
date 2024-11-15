@@ -1,57 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/analysis"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AnalysisActivity">
-    <LinearLayout
+
+    <!-- Bottom Navigation RadioGroup -->
+    <RadioGroup
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <RadioGroup
-            android:id="@+id/bottom_navigation"
-            android:layout_width="match_parent"
+        <!-- Read Button -->
+        <RadioButton
+            android:id="@+id/navigation_read"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:button="@null"
+            android:background="@drawable/radio_button_selector"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:padding="12dp"
+            android:text="Read" />
 
-            <RadioButton
-                android:id="@+id/navigation_read"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:background="@drawable/radio_button_selector"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="Read" />
+        <!-- Import Button -->
+        <RadioButton
+            android:id="@+id/navigation_import"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:background="@drawable/radio_button_selector"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="Import" />
 
-            <RadioButton
-                android:id="@+id/navigation_import"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:background="@drawable/radio_button_selector"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="Import" />
+        <!-- Analysis Button -->
+        <RadioButton
+            android:id="@+id/navigation_analysis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:background="@drawable/radio_button_selector"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="Analysis" />
 
-            <RadioButton
-                android:id="@+id/navigation_analysis"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:background="@drawable/radio_button_selector"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="Analysis" />
-        </RadioGroup>
-
-    </LinearLayout>
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    android:id="@+id/analysis"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    tools:context=".AnalysisActivity">-->
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
+
+    <!--        <RadioGroup-->
+    <!--            android:id="@+id/bottom_navigation"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_gravity="bottom"-->
+    <!--            android:gravity="center"-->
+    <!--            android:orientation="horizontal">-->
+
+    <!--            <RadioButton-->
+    <!--                android:id="@+id/navigation_read"-->
+    <!--                android:layout_width="0dp"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_weight="1"-->
+    <!--                android:button="@null"-->
+    <!--                android:background="@drawable/radio_button_selector"-->
+    <!--                android:gravity="center"-->
+    <!--                android:padding="8dp"-->
+    <!--                android:text="Read" />-->
+
+    <!--            <RadioButton-->
+    <!--                android:id="@+id/navigation_import"-->
+    <!--                android:layout_width="0dp"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_weight="1"-->
+    <!--                android:button="@null"-->
+    <!--                android:background="@drawable/radio_button_selector"-->
+    <!--                android:gravity="center"-->
+    <!--                android:padding="8dp"-->
+    <!--                android:text="Import" />-->
+
+    <!--            <RadioButton-->
+    <!--                android:id="@+id/navigation_analysis"-->
+    <!--                android:layout_width="0dp"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_weight="1"-->
+    <!--                android:button="@null"-->
+    <!--                android:background="@drawable/radio_button_selector"-->
+    <!--                android:gravity="center"-->
+    <!--                android:padding="8dp"-->
+    <!--                android:text="Analysis" />-->
+    <!--        </RadioGroup>-->
+
+    <!--    </LinearLayout>-->
+
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
