@@ -44,6 +44,9 @@ public class ContentActivity extends AppCompatActivity {
     private Button setting;
     private boolean isExpanded = false;
     private Button back;
+    private TextView font_seek_des;
+    private TextView bri_seek_des;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,12 +73,16 @@ public class ContentActivity extends AppCompatActivity {
                     modeSpinner.setVisibility(View.GONE);
                     brightnessSeekBar.setVisibility(View.GONE);
                     textSizeSeekBar.setVisibility(View.GONE);
+                    font_seek_des.setVisibility(View.GONE);
+                    bri_seek_des.setVisibility(View.GONE);
                 } else {
                     fontSpinner.setVisibility(View.VISIBLE);
                     colorSpinner.setVisibility(View.VISIBLE);
                     modeSpinner.setVisibility(View.VISIBLE);
                     brightnessSeekBar.setVisibility(View.VISIBLE);
                     textSizeSeekBar.setVisibility(View.VISIBLE);
+                    font_seek_des.setVisibility(View.VISIBLE);
+                    bri_seek_des.setVisibility(View.VISIBLE);
                 }
                 isExpanded = !isExpanded;
             }
@@ -90,6 +97,8 @@ public class ContentActivity extends AppCompatActivity {
         modeSpinner = findViewById(R.id.mode_selection);
         setupModeSpinner(modeSpinner);
 
+        font_seek_des = findViewById(R.id.seekbar_font_des);
+        bri_seek_des = findViewById(R.id.seekbar_bright_des);
         content = findViewById(R.id.read_content);
         textSizeSeekBar = findViewById(R.id.textsize_seekbar);
         textSizeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -186,6 +195,8 @@ public class ContentActivity extends AppCompatActivity {
                         modeSpinner.setBackgroundColor(Color.YELLOW);
                         textSizeSeekBar.setBackgroundColor(Color.YELLOW);
                         brightnessSeekBar.setBackgroundColor(Color.YELLOW);
+                        font_seek_des.setBackgroundColor(Color.YELLOW);
+                        bri_seek_des.setBackgroundColor(Color.YELLOW);
                         break;
                     case "Green":
                         container = findViewById(R.id.content_container);
@@ -195,6 +206,8 @@ public class ContentActivity extends AppCompatActivity {
                         modeSpinner.setBackgroundColor(Color.GREEN);
                         textSizeSeekBar.setBackgroundColor(Color.GREEN);
                         brightnessSeekBar.setBackgroundColor(Color.GREEN);
+                        font_seek_des.setBackgroundColor(Color.GREEN);
+                        bri_seek_des.setBackgroundColor(Color.GREEN);
                         break;
                     case "Black":
                         container = findViewById(R.id.content_container);
@@ -204,6 +217,8 @@ public class ContentActivity extends AppCompatActivity {
                         modeSpinner.setBackgroundColor(Color.BLACK);
                         textSizeSeekBar.setBackgroundColor(Color.BLACK);
                         brightnessSeekBar.setBackgroundColor(Color.BLACK);
+                        font_seek_des.setBackgroundColor(Color.BLACK);                        font_seek_des.setBackgroundColor(Color.BLACK);
+                        bri_seek_des.setBackgroundColor(Color.BLACK);
                         break;
                     default:
                         container = findViewById(R.id.content_container);
@@ -213,6 +228,8 @@ public class ContentActivity extends AppCompatActivity {
                         modeSpinner.setBackgroundColor(Color.WHITE);
                         textSizeSeekBar.setBackgroundColor(Color.WHITE);
                         brightnessSeekBar.setBackgroundColor(Color.WHITE);
+                        font_seek_des.setBackgroundColor(Color.WHITE);
+                        bri_seek_des.setBackgroundColor(Color.WHITE);
                         break;
                 }
             }
@@ -246,6 +263,8 @@ public class ContentActivity extends AppCompatActivity {
                         modeSpinner.setBackgroundColor(Color.WHITE);
                         textSizeSeekBar.setBackgroundColor(Color.WHITE);
                         brightnessSeekBar.setBackgroundColor(Color.WHITE);
+                        font_seek_des.setBackgroundColor(Color.WHITE);
+                        bri_seek_des.setBackgroundColor(Color.WHITE);
                         float brightness = 80 / 100.0f;
                         WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
                         layoutParams.screenBrightness = brightness;
@@ -262,6 +281,8 @@ public class ContentActivity extends AppCompatActivity {
                         modeSpinner.setBackgroundColor(Color.WHITE);
                         textSizeSeekBar.setBackgroundColor(Color.WHITE);
                         brightnessSeekBar.setBackgroundColor(Color.WHITE);
+                        font_seek_des.setBackgroundColor(Color.WHITE);
+                        bri_seek_des.setBackgroundColor(Color.WHITE);
                         float brightness2 = 80 / 100.0f;
                         WindowManager.LayoutParams layoutParam2 = getWindow().getAttributes();
                         layoutParam2.screenBrightness = brightness2;
@@ -278,6 +299,8 @@ public class ContentActivity extends AppCompatActivity {
                         modeSpinner.setBackgroundColor(Color.WHITE);
                         textSizeSeekBar.setBackgroundColor(Color.WHITE);
                         brightnessSeekBar.setBackgroundColor(Color.WHITE);
+                        font_seek_des.setBackgroundColor(Color.WHITE);
+                        bri_seek_des.setBackgroundColor(Color.WHITE);
                         float brightness3 = 80 / 100.0f;
                         WindowManager.LayoutParams layoutParam3 = getWindow().getAttributes();
                         layoutParam3.screenBrightness = brightness3;
