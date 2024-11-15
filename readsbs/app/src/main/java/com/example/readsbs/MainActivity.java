@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigation.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.navigation_import) {
+                Toast.makeText(MainActivity.this, "Redirecting", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, ImportActivity.class));
+
             } else if (checkedId == R.id.navigation_read) {
                 Toast.makeText(MainActivity.this, "Redirecting", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(MainActivity.this, ReadActivity.class));

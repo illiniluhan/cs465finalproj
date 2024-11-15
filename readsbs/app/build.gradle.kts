@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.google.gms.google.services)
+    id("com.android.application")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -33,17 +33,22 @@ android {
 }
 
 dependencies {
+    implementation(platform(libs.firebase.bom))
 
+    implementation(libs.firebase.database)
+    implementation(libs.firebase.storage)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
+
+    implementation(libs.okhttp)
+    implementation(libs.jsoup)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation(libs.firebase.auth)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
-    implementation(libs.firebase.firestore)
-    implementation("org.jsoup:jsoup:1.14.3")
-    implementation(files("jsoup-1.18.1.jar"))
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
