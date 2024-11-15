@@ -95,6 +95,15 @@
             android:visibility="gone"
             android:gravity="center"/>
 
+        <TextView
+            android:id="@+id/seekbar_font_des"
+            android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:visibility="gone"
+            android:background="@color/white"
+            android:text="    Font Size" />
         <SeekBar
             android:id="@+id/textsize_seekbar"
             android:layout_width="match_parent"
@@ -104,6 +113,15 @@
             android:visibility="gone"
             android:min="10"
             android:max="40" />
+        <TextView
+            android:id="@+id/seekbar_bright_des"
+            android:layout_width="match_parent"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:background="@color/white"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:text="    Brightness" />
         <SeekBar
             android:id="@+id/brightness_seekbar"
             android:layout_width="match_parent"
