@@ -100,6 +100,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/alarm_logo_1"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginLeft="30dp"
@@ -169,6 +170,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/alarm_logo_2"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginLeft="30dp"
@@ -238,6 +240,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/alarm_logo_3"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginLeft="30dp"
@@ -361,6 +364,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/alarm_logo_4"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginLeft="30dp"
@@ -431,6 +435,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/alarm_logo_5"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginLeft="30dp"
@@ -500,6 +505,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/alarm_logo_6"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginLeft="30dp"
@@ -569,6 +575,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/alarm_logo_7"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginLeft="30dp"

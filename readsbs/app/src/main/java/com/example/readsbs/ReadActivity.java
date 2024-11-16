@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -39,6 +40,28 @@ public class ReadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_read);
 
         RadioGroup bottomNavigation = findViewById(R.id.bottom_navigation);
+
+        ImageView alarmLogo1 = findViewById(R.id.alarm_logo_1);
+        ImageView alarmLogo2 = findViewById(R.id.alarm_logo_2);
+        ImageView alarmLogo3 = findViewById(R.id.alarm_logo_3);
+        ImageView alarmLogo4 = findViewById(R.id.alarm_logo_4);
+        ImageView alarmLogo5 = findViewById(R.id.alarm_logo_5);
+        ImageView alarmLogo6 = findViewById(R.id.alarm_logo_6);
+        ImageView alarmLogo7 = findViewById(R.id.alarm_logo_7);
+        View.OnClickListener alarmClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ReadActivity.this, ReminderActivity.class);
+                startActivity(intent);
+            }
+        };
+        alarmLogo1.setOnClickListener(alarmClickListener);
+        alarmLogo2.setOnClickListener(alarmClickListener);
+        alarmLogo3.setOnClickListener(alarmClickListener);
+        alarmLogo4.setOnClickListener(alarmClickListener);
+        alarmLogo5.setOnClickListener(alarmClickListener);
+        alarmLogo6.setOnClickListener(alarmClickListener);
+        alarmLogo7.setOnClickListener(alarmClickListener);
 
         bookSection1 = findViewById(R.id.book1);
         bookSectionDetails11 = findViewById(R.id.book_section_details11);
