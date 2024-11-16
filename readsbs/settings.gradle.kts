@@ -1,12 +1,14 @@
 pluginManagement {
     repositories {
-        google()
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
         mavenCentral()
         gradlePluginPortal()
-    }
-    plugins {
-        id("com.android.application") version "8.1.0"
-        id("com.google.gms.google-services") version "4.3.15"
     }
 }
 dependencyResolutionManagement {
