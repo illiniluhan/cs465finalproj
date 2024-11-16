@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fonts_options">
+        <item>Choose Font</item>
+        <item>Default</item>
+        <item>Bionic</item>
+        <item>New York</item>
+    </string-array>
+    <string-array name="color_options">
+        <item>Choose Background Color</item>
+        <item>Default</item>
+        <item>Yellow</item>
+        <item>Green</item>
+        <item>Black</item>
+    </string-array>
+    <string-array name="mode_options">
+        <item>Choose Mode</item>
+        <item>Default</item>
+        <item>Speed</item>
+        <item>In-depth</item>
+    </string-array>
+</resources>

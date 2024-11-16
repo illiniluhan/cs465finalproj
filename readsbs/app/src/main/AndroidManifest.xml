@@ -17,12 +17,9 @@
         <activity android:name=".RegisterActivity" android:exported="true" android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".MainActivity" android:exported="true" android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".ContentActivity" android:exported="true" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".AnalysisAnalysis" android:exported="true" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".AnalysisProgress" android:exported="true" android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".ReminderActivity" android:exported="true" android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".AnalysisAnalysis" />
-        <activity android:name=".AnalysisProgress" />
-
-
-
         <activity
             android:name=".LoginActivity"
             android:exported="true"

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:id="@+id/content_container"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:id="@+id/main_content"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_width="60dp"
+                    android:id="@+id/back_btn"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="&lt;"
+                    android:textColor="#8866EF"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Test"
+                    android:textSize="26sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/read_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:fontFamily="@font/timesnewroman"
+                android:layout_marginRight="16dp"
+                android:text="@string/sample_reading"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/menu_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Spinner
+            android:id="@+id/font_selection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:prompt="@string/font_hint"
+            android:entries="@array/fonts_options"
+            android:background="@color/white"
+            android:visibility="gone"
+            android:gravity="center"/>
+        <Spinner
+            android:id="@+id/color_selection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:prompt="@string/color_hint"
+            android:entries="@array/color_options"
+            android:background="@color/white"
+            android:visibility="gone"
+            android:gravity="center"/>
+        <Spinner
+            android:id="@+id/mode_selection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:prompt="@string/Mode_hint"
+            android:entries="@array/mode_options"
+            android:background="@color/white"
+            android:visibility="gone"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/seekbar_font_des"
+            android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:visibility="gone"
+            android:background="@color/white"
+            android:text="    Font Size" />
+        <SeekBar
+            android:id="@+id/textsize_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="12dp"
+            android:visibility="gone"
+            android:min="10"
+            android:max="40" />
+        <TextView
+            android:id="@+id/seekbar_bright_des"
+            android:layout_width="match_parent"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:background="@color/white"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:text="    Brightness" />
+        <SeekBar
+            android:id="@+id/brightness_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone"
+            android:padding="12dp"
+            android:min="0"
+            android:max="100" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Setting"
+            app:cornerRadius="0dp"
+            android:id="@+id/setting_btn"
+            android:backgroundTint="#D2C4F4"
+            android:textColor="@color/black"/>
+
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
