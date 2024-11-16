@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <!-- Left aligned icon -->
+
+        <!-- Header options (Read, In process, To-Do) -->
+        <Button
+            android:id="@+id/back_btn2"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="&lt;"
+            android:textColor="#8866EF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/header_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/back_btn2"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_read"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/circle_button_background"
+                android:text="Read"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_in_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/circle_button_background"
+                android:text="In progress"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_to_do"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_button_background"
+                android:text="To-Do"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Graph placeholder -->
+        <View
+            android:id="@+id/graph_placeholder"
+
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/header_buttons"
+            android:layout_marginTop="16dp"
+            android:background="#D3D3D3"
+            android:text="Progress graph palceholder"
+            android:textSize="100sp"
+            />
+
+        <RelativeLayout
+            android:id="@+id/graph_placeholder2"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/header_buttons"
+            android:layout_marginTop="16dp"
+            android:background="#D3D3D3">
+
+            <TextView
+                android:id="@+id/tv_graph_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Graph Placeholder"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000000" />
+        </RelativeLayout>
+
+        <!-- Statistics and advice sections -->
+        <LinearLayout
+            android:id="@+id/statistics_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/graph_placeholder"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tv_average_speed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Average reading speed"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_speed_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="214 wpm"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/statistics_session_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/statistics_section"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tv_session_time"
+                android:layout_width="193dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Average reading session time"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_session_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="15.3 minutes"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Advice Section -->
+        <TextView
+            android:id="@+id/tv_advice_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/statistics_session_time"
+            android:layout_marginTop="16dp"
+            android:text="Advice for future work:"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_advice_in_process"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_advice_title"
+            android:layout_marginTop="8dp"
+            android:text="• In Process"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_advice_to_do"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_advice_in_process"
+            android:layout_marginTop="4dp"
+            android:text="• To-Do"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

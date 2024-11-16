@@ -21,13 +21,13 @@ public class AnalysisActivity extends AppCompatActivity {
         read_analysis = findViewById(R.id.read_analy);
 
         read_progress.setOnClickListener(v -> {
-            Intent intent = new Intent(AnalysisActivity.this, MainActivity.class);
+            Intent intent = new Intent(AnalysisActivity.this, AnalysisProgress.class);
             Toast.makeText(this, "Redirecting", Toast.LENGTH_SHORT).show();
             startActivity(intent);
         });
 
         read_analysis.setOnClickListener(v -> {
-            Intent intent = new Intent(AnalysisActivity.this, ReadActivity.class);
+            Intent intent = new Intent(AnalysisActivity.this, AnalysisAnalysis.class);
             Toast.makeText(this, "Redirecting", Toast.LENGTH_SHORT).show();
             startActivity(intent);
         });
