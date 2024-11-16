@@ -1,0 +1,138 @@
+[
+    {
+        "merged": "com.example.readsbs.app-debug-49:/drawable_circle_background.xml.flat",
+        "source": "com.example.readsbs.app-main-51:/drawable/circle_background.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/drawable_analysis_icon.jpg.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/drawable/analysis_icon.jpg"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/layout_activity_login.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/layout/activity_login.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/drawable_textbox_ui.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/drawable/textbox_ui.xml"
+    },
+    {
+        "merged": "com.example.readsbs.app-debug-49:/drawable_circular_progress.xml.flat",
+        "source": "com.example.readsbs.app-main-51:/drawable/circular_progress.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/drawable_circular_progress.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/drawable/circular_progress.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/mipmap-anydpi/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/layout_activity_content.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/layout/activity_content.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/mipmap-anydpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/drawable_book_icon.jpg.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/drawable/book_icon.jpg"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/drawable_button_ui.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/drawable/button_ui.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/layout_activity_register.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/layout/activity_register.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/drawable_logo.jpg.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/drawable/logo.jpg"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/color_radio_button_selector.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/color/radio_button_selector.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/layout_activity_import.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/layout/activity_import.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/layout_activity_analysis.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/layout/activity_analysis.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/drawable_radio_button_selector.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/drawable/radio_button_selector.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/drawable_import_icon.jpg.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/drawable/import_icon.jpg"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/xml_backup_rules.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/layout_activity_main.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-debug-49:/layout_activity_read.xml.flat",
+        "source": "/Users/kennae/.gradle/daemon/8.7/com.example.readsbs.app-main-51:/layout/activity_read.xml"
+    }
+]

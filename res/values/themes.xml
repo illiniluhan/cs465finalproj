@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Readsbs" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">@color/klyblue</item>
+    </style>
+
+    <style name="Theme.Readsbs" parent="Base.Theme.Readsbs" />
+</resources>
