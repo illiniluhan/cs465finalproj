@@ -74,5 +74,13 @@ public class MainActivity extends AppCompatActivity {
     private void submit_to_parse() {
         String parse_path = path.getText().toString().trim();
 
+        if (parse_path.isEmpty()) {
+            // Fail
+            Toast.makeText(MainActivity.this, "Please enter a valid path.", Toast.LENGTH_SHORT).show();
+        } else {
+            // Success
+            Toast.makeText(MainActivity.this, "Submit Successful!", Toast.LENGTH_SHORT).show();
+        }
     }
+
 }
