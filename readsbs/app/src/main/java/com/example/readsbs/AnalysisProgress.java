@@ -49,14 +49,13 @@ public class AnalysisProgress extends AppCompatActivity {
             totalTime += parseTime(item.estimatedTime);
         }
         int overallProgress = booksList.size() > 0 ? totalProgress / booksList.size() : 0;
-        int overallTime = totalTime; // sum of all times
+        int overallTime = totalTime;
 
         tvCategoryTitle.setText(selectedCategory);
         largeCircularProgress.setProgress(overallProgress);
         tvOverallPercentage.setText(overallProgress + "%");
         tvEstimatedTimeCategory.setText("Estimated Time: " + overallTime + " min");
 
-        // Create rows of books
         createBookRows(booksList);
 
         backBtn.setOnClickListener(v -> onBackPressed());
@@ -67,33 +66,35 @@ public class AnalysisProgress extends AppCompatActivity {
 
         switch (category) {
             case "Books":
-                booksList.add(new BookItem("Astrophysics", 100, "0 min"));
-                booksList.add(new BookItem("Quantum Mechanics", 28, "17 min"));
-                booksList.add(new BookItem("Thermodynamics", 5, "8 min"));
+                booksList.add(new BookItem("A Brief History of Time", 100, "0 min"));
+                booksList.add(new BookItem("The Selfish Gene", 28, "17 min"));
+                booksList.add(new BookItem("Cosmos", 5, "8 min"));
                 break;
 
             case "Research Papers":
-                booksList.add(new BookItem("Paper on AI", 45, "22 min"));
-                booksList.add(new BookItem("Paper on Genetics", 80, "10 min"));
-                booksList.add(new BookItem("Paper on Renewable Energy", 30, "30 min"));
-                booksList.add(new BookItem("Paper on Blockchain", 60, "15 min"));
-                booksList.add(new BookItem("Paper on Microbiology", 20, "25 min"));
-                booksList.add(new BookItem("Paper on Robotics", 90, "5 min"));
+                booksList.add(new BookItem("CRISPR Gene Editing: A Review", 45, "22 min"));
+                booksList.add(new BookItem("Deep Learning in Autonomous Vehicles", 80, "10 min"));
+                booksList.add(new BookItem("Quantum Computing Frontier", 30, "30 min"));
+                booksList.add(new BookItem("Climate Change Impacts on Agriculture", 60, "15 min"));
+                booksList.add(new BookItem("Nanomaterials in Medicine", 20, "25 min"));
+                booksList.add(new BookItem("Black Hole Thermodynamics: A Survey", 90, "5 min"));
                 break;
 
             case "Articles":
-                booksList.add(new BookItem("Climate Change Article", 10, "40 min"));
-                booksList.add(new BookItem("Tech Trends Article", 40, "5 min"));
-                booksList.add(new BookItem("Health & Wellness Article", 25, "0 min"));
-                booksList.add(new BookItem("Art & Culture Article", 50, "10 min"));
-                booksList.add(new BookItem("Economics Article", 70, "15 min"));
-                booksList.add(new BookItem("Sports Article", 30, "20 min"));
-                booksList.add(new BookItem("Music Industry Article", 55, "8 min"));
-                booksList.add(new BookItem("Travel Article", 35, "12 min"));
+                booksList.add(new BookItem("The Future of Renewable Energy", 10, "40 min"));
+                booksList.add(new BookItem("Trends in Cryptocurrency", 40, "5 min"));
+                booksList.add(new BookItem("Meditation and Mental Health", 25, "0 min"));
+                booksList.add(new BookItem("Renaissance Art in Modern Context", 50, "10 min"));
+                booksList.add(new BookItem("Global Economic Outlook", 70, "15 min"));
+                booksList.add(new BookItem("Soccer Analytics Revolution", 30, "20 min"));
+                booksList.add(new BookItem("The Evolution of Pop Music", 55, "8 min"));
+                booksList.add(new BookItem("Sustainable Tourism Practices", 35, "12 min"));
                 break;
 
             default:
-                booksList.add(new BookItem("You have no books in your library!", 0, "0 min"));
+                booksList.add(new BookItem("Default Title 1", 0, "0 min"));
+                booksList.add(new BookItem("Default Title 2", 0, "0 min"));
+                booksList.add(new BookItem("Default Title 3", 0, "0 min"));
                 break;
         }
     }

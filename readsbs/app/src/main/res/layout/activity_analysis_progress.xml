@@ -20,36 +20,40 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Category Title -->
+
+    <!-- Large Circular Progress Bar (Overall Category) -->
+
+    <!-- Overall Percentage Text -->
+
     <TextView
         android:id="@+id/tv_category_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:text="Category Title"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Large Circular Progress Bar (Overall Category) -->
     <ProgressBar
         android:id="@+id/large_circular_progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/progress_background_large"
         android:indeterminate="false"
         android:max="100"
         android:progress="50"
         android:progressDrawable="@drawable/circular_progress"
-        android:background="@drawable/progress_background_large"
-        app:layout_constraintTop_toBottomOf="@id/tv_category_title"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"/>
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_category_title" />
 
-    <!-- Overall Percentage Text -->
     <TextView
         android:id="@+id/tv_overall_percentage"
         android:layout_width="wrap_content"
