@@ -56,21 +56,31 @@ public class ReminderActivity extends AppCompatActivity {
         datePickerDialog.show();
     }
 
-    private void showTimePicker() {
-        TimePickerDialog timePickerDialog = new TimePickerDialog(
-                this,
-                (view, hourOfDay, minute) -> {
-                    selectedDateTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
-                    selectedDateTime.set(Calendar.MINUTE, minute);
-                    updateTimeButtonText();
-                },
-                selectedDateTime.get(Calendar.HOUR_OF_DAY),
-                selectedDateTime.get(Calendar.MINUTE),
-                false
-        );
-        timePickerDialog.show();
-    }
 
+private void showTimePicker() {
+    // Get Current Time
+    final Calendar calendar = Calendar.getInstance();
+    int hour = calendar.get(Calendar.HOUR_OF_DAY);
+    int minute = calendar.get(Calendar.MINUTE);
+
+    // Create TimePickerDialog with SPINNER mode
+    TimePickerDialog timePickerDialog = new TimePickerDialog(
+            this,
+            android.R.style.Theme_Holo_Light_Dialog_NoActionBar,
+            (view, hourOfDay, minute1) -> {
+                selectedDateTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                selectedDateTime.set(Calendar.MINUTE, minute1);
+                updateTimeButtonText();
+            },
+            hour,
+            minute,
+            false); // false = 12 hour format
+
+    // Customize the dialog
+    timePickerDialog.setTitle("Select Time");
+    timePickerDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+    timePickerDialog.show();
+}
     private void updateDateButtonText() {
         String date = String.format("%d/%d/%d",
                 selectedDateTime.get(Calendar.MONTH) + 1,
@@ -79,14 +89,12 @@ public class ReminderActivity extends AppCompatActivity {
         datePickerButton.setText(date);
     }
 
-    private void updateTimeButtonText() {
-        String time = String.format("%d:%02d %s",
-                selectedDateTime.get(Calendar.HOUR) == 0 ? 12 : selectedDateTime.get(Calendar.HOUR),
-                selectedDateTime.get(Calendar.MINUTE),
-                selectedDateTime.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM");
-        timePickerButton.setText(time);
-    }
 
+private void updateTimeButtonText() {
+    java.text.SimpleDateFormat timeFormat = new java.text.SimpleDateFormat("hh:mm a",
+            java.util.Locale.getDefault());
+    timePickerButton.setText(timeFormat.format(selectedDateTime.getTime()));
+}
     private void saveReminder() {
         // TODO: Implement saving reminder functionality
         Toast.makeText(this, "Reminder saved", Toast.LENGTH_SHORT).show();
