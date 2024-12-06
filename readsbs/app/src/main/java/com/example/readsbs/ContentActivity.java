@@ -60,6 +60,8 @@ public class ContentActivity extends AppCompatActivity {
     private ImageView fang_btn;
     private LinearLayout font_sb;
     private LinearLayout color_sb;
+    private SeekBar layoutSeekBar;
+    private LinearLayout layout_sb;
 
 
     @Override
@@ -78,6 +80,7 @@ public class ContentActivity extends AppCompatActivity {
         menu_container = findViewById(R.id.menu_container);
         font_sb = findViewById(R.id.font_sb);
         color_sb = findViewById(R.id.color_sb);
+        layout_sb = findViewById(R.id.layout_sb);
 
         fontSpinner = findViewById(R.id.font_selection);
         setupFontSpinner(fontSpinner);
@@ -128,10 +131,34 @@ public class ContentActivity extends AppCompatActivity {
             }
         });
 
-
-
-
         content = findViewById(R.id.read_content);
+        String originalText = content.getText().toString();
+
+        layoutSeekBar = findViewById(R.id.layoutSeekBar);
+        layoutSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                String[] lines = originalText.split("\n");
+                StringBuilder modifiedText = new StringBuilder();
+
+                for (String line : lines) {
+                    modifiedText.append(line);
+                    for (int i = 0; i < progress; i++) {
+                        modifiedText.append("\n");
+                    }
+                }
+                content.setText(modifiedText.toString());
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+
         textSizeSeekBar = findViewById(R.id.textSizeSeekBar);
         textSizeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -192,6 +219,7 @@ public class ContentActivity extends AppCompatActivity {
                         content.setTypeface(typeface2);
                         fontSpinner.setVisibility(View.GONE);
                         font_sb.setVisibility(View.VISIBLE);
+                        layout_sb.setVisibility(View.VISIBLE);
                         color_sb.setVisibility(View.VISIBLE);
                         break;
                     case "Times New Roman":
@@ -200,6 +228,7 @@ public class ContentActivity extends AppCompatActivity {
                         fontSpinner.setVisibility(View.GONE);
                         font_sb.setVisibility(View.VISIBLE);
                         color_sb.setVisibility(View.VISIBLE);
+                        layout_sb.setVisibility(View.VISIBLE);
                         break;
                     case "Helvetica":
                         Typeface typeface4 = ResourcesCompat.getFont(ContentActivity.this, R.font.helvetica);
@@ -207,6 +236,7 @@ public class ContentActivity extends AppCompatActivity {
                         fontSpinner.setVisibility(View.GONE);
                         font_sb.setVisibility(View.VISIBLE);
                         color_sb.setVisibility(View.VISIBLE);
+                        layout_sb.setVisibility(View.VISIBLE);
                         break;
 
                 }
@@ -235,6 +265,7 @@ public class ContentActivity extends AppCompatActivity {
                         colorSpinner.setVisibility(View.GONE);
                         font_sb.setVisibility(View.VISIBLE);
                         color_sb.setVisibility(View.VISIBLE);
+                        layout_sb.setVisibility(View.VISIBLE);
                         break;
                     case "Green":
                         cont_container = findViewById(R.id.cont_container);
@@ -243,6 +274,7 @@ public class ContentActivity extends AppCompatActivity {
                         colorSpinner.setVisibility(View.GONE);
                         font_sb.setVisibility(View.VISIBLE);
                         color_sb.setVisibility(View.VISIBLE);
+                        layout_sb.setVisibility(View.VISIBLE);
                         break;
                     case "Black":
                         cont_container = findViewById(R.id.cont_container);
@@ -251,6 +283,7 @@ public class ContentActivity extends AppCompatActivity {
                         colorSpinner.setVisibility(View.GONE);
                         font_sb.setVisibility(View.VISIBLE);
                         color_sb.setVisibility(View.VISIBLE);
+                        layout_sb.setVisibility(View.VISIBLE);
                         break;
                     case "White":
                         cont_container = findViewById(R.id.cont_container);
@@ -259,6 +292,7 @@ public class ContentActivity extends AppCompatActivity {
                         colorSpinner.setVisibility(View.GONE);
                         font_sb.setVisibility(View.VISIBLE);
                         color_sb.setVisibility(View.VISIBLE);
+                        layout_sb.setVisibility(View.VISIBLE);
                         break;
                 }
             }
@@ -292,6 +326,7 @@ public class ContentActivity extends AppCompatActivity {
                         content.setTextSize(18);
                         modeSpinner.setVisibility(View.GONE);
                         font_sb.setVisibility(View.VISIBLE);
+                        layout_sb.setVisibility(View.VISIBLE);
                         color_sb.setVisibility(View.VISIBLE);
                         break;
                     case "Speed":
@@ -306,6 +341,7 @@ public class ContentActivity extends AppCompatActivity {
                         getWindow().setAttributes(layoutParam2);
                         content.setTextSize(18);
                         modeSpinner.setVisibility(View.GONE);
+                        layout_sb.setVisibility(View.VISIBLE);
                         font_sb.setVisibility(View.VISIBLE);
                         color_sb.setVisibility(View.VISIBLE);
                         break;
@@ -322,6 +358,7 @@ public class ContentActivity extends AppCompatActivity {
                         content.setTextSize(18);
                         modeSpinner.setVisibility(View.GONE);
                         font_sb.setVisibility(View.VISIBLE);
+                        layout_sb.setVisibility(View.VISIBLE);
                         color_sb.setVisibility(View.VISIBLE);
                         break;
 
@@ -349,6 +386,7 @@ public class ContentActivity extends AppCompatActivity {
                             fontSpinner.setVisibility(View.VISIBLE);
                             font_sb.setVisibility(View.GONE);
                             color_sb.setVisibility(View.GONE);
+                            layout_sb.setVisibility(View.GONE);
                         })
                         .start())
                 .start();
@@ -367,6 +405,7 @@ public class ContentActivity extends AppCompatActivity {
                             colorSpinner.setVisibility(View.VISIBLE);
                             font_sb.setVisibility(View.GONE);
                             color_sb.setVisibility(View.GONE);
+                            layout_sb.setVisibility(View.GONE);
                         })
                         .start())
                 .start();
@@ -385,6 +424,7 @@ public class ContentActivity extends AppCompatActivity {
                             modeSpinner.setVisibility(View.VISIBLE);
                             font_sb.setVisibility(View.GONE);
                             color_sb.setVisibility(View.GONE);
+                            layout_sb.setVisibility(View.GONE);
                         })
                         .start())
                 .start();

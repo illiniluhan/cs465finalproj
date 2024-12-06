@@ -96,7 +96,7 @@ public class AnalysisActivity extends AppCompatActivity {
                         .scaleY(1f)
                         .setDuration(100)
                         .withEndAction(() -> {
-                            startActivity(new Intent(AnalysisActivity.this, AnalysisActivity.class));
+                            startActivity(new Intent(AnalysisActivity.this, BookActivity.class));
                         })
                         .start())
                 .start();
