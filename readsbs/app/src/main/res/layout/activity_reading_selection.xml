@@ -43,20 +43,23 @@
 
     <LinearLayout
         android:id="@+id/selections_container"
-        android:layout_width="411dp"
-        android:layout_height="676dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="406dp"
+        android:layout_height="652dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:padding="16dp"
         android:weightSum="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/reading_selection_title">
+        app:layout_constraintTop_toBottomOf="@id/reading_selection_title"
+        app:layout_constraintVertical_bias="0.02">
 
         <!-- Books -->
 
         <!-- Research Papers -->
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_books"
             android:layout_width="match_parent"
@@ -64,8 +67,8 @@
             android:layout_marginBottom="16dp"
             android:layout_weight="1"
             android:clickable="true"
-            app:cardBackgroundColor="@android:color/white"
             android:focusable="true"
+            app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp"
             app:cardUseCompatPadding="true">
@@ -114,9 +117,9 @@
             android:layout_weight="1"
             android:clickable="true"
             android:focusable="true"
+            app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp"
-            app:cardBackgroundColor="@android:color/white"
             app:cardUseCompatPadding="true">
 
             <TextView

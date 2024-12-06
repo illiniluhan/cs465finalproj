@@ -155,7 +155,7 @@ public class AnalysisProgress extends AppCompatActivity {
         progressBar.setMax(100);
         progressBar.setProgress(book.progress);
         progressBar.setProgressDrawable(getResources().getDrawable(R.drawable.circular_progress));
-        progressBar.setBackground(getResources().getDrawable(R.drawable.progress_background_large));
+        progressBar.setBackground(getResources().getDrawable(R.drawable.progress_background));
         frameLayout.addView(progressBar);
 
         // Overlay layout for percentage and estimated time (inside the circle)
