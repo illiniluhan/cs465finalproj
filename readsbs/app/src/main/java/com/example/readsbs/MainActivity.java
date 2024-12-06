@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -75,7 +76,15 @@ public class MainActivity extends AppCompatActivity {
     private void submit_to_parse() {
         String parse_path = path.getText().toString().trim();
 
+        if (parse_path.isEmpty()) {
+            // Fail
+            Toast.makeText(MainActivity.this, "Please enter a valid path.", Toast.LENGTH_SHORT).show();
+        } else {
+            // Success
+            Toast.makeText(MainActivity.this, "Submit Successful!", Toast.LENGTH_SHORT).show();
+        }
     }
+
 
     private void performClickAnimation(View view) {
         view.animate()
