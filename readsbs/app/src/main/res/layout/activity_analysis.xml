@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -12,20 +13,23 @@
         android:id="@+id/profile_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="horizontal">
+        app:layout_constraintEnd_toEndOf="parent">
+
         <TextView
             android:id="@+id/user_page"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/helveticabo"
             android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/border"
             android:text="User Profile"
-            android:fontFamily="@font/timesnewromanit"
-            android:textColor="#492ACA"
-            android:textSize="28sp" />
+            android:textColor="#251083"
+            android:textSize="30sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -33,8 +37,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/profile_title"
         android:background="@drawable/border"
+        app:layout_constraintTop_toBottomOf="@id/profile_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -42,18 +46,16 @@
             android:id="@+id/user_logo"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
             android:src="@drawable/user_logo" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -72,20 +74,39 @@
                 android:textSize="18dp" />
 
         </LinearLayout>
+
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/reading_prog"
-        android:layout_width="match_parent"
-        android:layout_height="88dp"
+    <!-- Reading Progress CardView Button -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/reading_prog_card"
+        android:layout_width="317dp"
+        android:layout_height="99dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/user_info"
-        app:layout_constraintStart_toStartOf="parent"
+        android:padding="16dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
-        android:fontFamily="@font/timesnewroman"
-        android:background="@drawable/border"
-        android:textSize="20dp"
-        android:text="Reading Progress" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_info">
+
+        <TextView
+            android:id="@+id/reading_prog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Reading Progress"
+            android:textSize="25sp" />
+    </com.google.android.material.card.MaterialCardView>
 
 
     <!-- Line Chart -->
@@ -93,32 +114,32 @@
         android:id="@+id/line_chart"
         android:layout_width="380dp"
         android:layout_height="200dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/reading_prog" />
+        app:layout_constraintTop_toBottomOf="@id/reading_prog_card" />
 
     <!-- Statistics Section: Average reading speed -->
     <LinearLayout
         android:id="@+id/statistics_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/line_chart"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="15dp"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
-        android:layout_marginHorizontal="15dp"
-        android:weightSum="2">
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@id/line_chart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/tv_average_speed"
-            android:layout_width="0dp"
+            android:layout_width="164dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Average reading speed"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_speed_value"
@@ -136,20 +157,20 @@
         android:id="@+id/statistics_session_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/statistics_section"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="15dp"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        android:layout_marginHorizontal="15dp"
-        android:weightSum="2">
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@id/statistics_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/tv_session_time"
             android:layout_width="105dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Average reading session time"
+            android:text="Average reading session"
             android:textColor="#000000"
             android:textSize="18sp" />
 
@@ -169,42 +190,44 @@
         android:id="@+id/tv_advice_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="18dp"
+
+        android:text="Advice for future readings:"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/statistics_session_time"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="15dp"
-        android:text="Advice for future work:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Dynamic advice lines -->
     <TextView
         android:id="@+id/tv_advice_in_process"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_advice_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
         android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="8dp"
         android:text="• In Process advice goes here"
         android:textColor="#000000"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_advice_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/tv_advice_to_do"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_advice_in_process"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="4dp"
         android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="4dp"
         android:text="• To-Do advice goes here"
         android:textColor="#000000"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_advice_in_process"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
         android:id="@+id/bottom_navigation_container"
@@ -219,9 +242,9 @@
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
             android:divider="@drawable/navi_line"
+            android:gravity="center"
+            android:orientation="horizontal"
             android:showDividers="middle">
 
             <RadioButton
@@ -229,33 +252,36 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/radio_button_selector"
                 android:button="@null"
-                android:background="@color/radio_button_selector"                android:gravity="center"
+                android:gravity="center"
                 android:padding="8dp"
-                android:textColor="@drawable/text_color_sele"
-                android:text="Read" />
+                android:text="Read"
+                android:textColor="@drawable/text_color_sele" />
 
             <RadioButton
                 android:id="@+id/navigation_import"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/radio_button_selector"
                 android:button="@null"
-                android:textColor="@drawable/text_color_sele"
-                android:background="@color/radio_button_selector"                android:gravity="center"
+                android:gravity="center"
                 android:padding="8dp"
-                android:text="Import" />
+                android:text="Import"
+                android:textColor="@drawable/text_color_sele" />
 
             <RadioButton
                 android:id="@+id/navigation_analysis"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/radio_button_selector"
                 android:button="@null"
-                android:textColor="@drawable/text_color_sele"
-                android:background="@color/radio_button_selector"                android:gravity="center"
+                android:gravity="center"
                 android:padding="8dp"
-                android:text="Analysis" />
+                android:text="Analysis"
+                android:textColor="@drawable/text_color_sele" />
         </RadioGroup>
 
     </LinearLayout>

@@ -1,247 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/analysis"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AnalysisActivity">
+    android:background="@color/white"
+    android:layout_height="match_parent">
 
     <!-- Back Button -->
-    <Button
-        android:id="@+id/back_btn3"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="7dp"
-        android:background="@android:color/transparent"
-        android:text="&lt;"
-        android:textColor="#8866EF"
-        android:textSize="26sp"
-        android:textStyle="bold"
+    <ImageView
+        android:id="@+id/back_btn2"
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/fanhui"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Title -->
+    <!-- Category Title -->
     <TextView
-        android:id="@+id/tv_article_title"
+        android:id="@+id/tv_category_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:textSize="24sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="Category Title"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Circular Progress Bar -->
+    <!-- Large Circular Progress Bar (Overall Category) -->
     <ProgressBar
-        android:id="@+id/circularProgressBar"
+        android:id="@+id/large_circular_progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="32dp"
         android:indeterminate="false"
         android:max="100"
-        android:progress="76"
+        android:progress="50"
         android:progressDrawable="@drawable/circular_progress"
         android:background="@drawable/progress_background_large"
-
-        app:layout_constraintTop_toBottomOf="@id/tv_article_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_category_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
 
-    <!-- Progress Percentage -->
+    <!-- Overall Percentage Text -->
     <TextView
-        android:id="@+id/tv_progress_percentage"
+        android:id="@+id/tv_overall_percentage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="76%"
+        android:text="50%"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="@id/circularProgressBar"
-        app:layout_constraintBottom_toBottomOf="@id/circularProgressBar"
-        app:layout_constraintStart_toStartOf="@id/circularProgressBar"
-        app:layout_constraintEnd_toEndOf="@id/circularProgressBar" />
+        app:layout_constraintTop_toTopOf="@id/large_circular_progress"
+        app:layout_constraintBottom_toBottomOf="@id/large_circular_progress"
+        app:layout_constraintStart_toStartOf="@id/large_circular_progress"
+        app:layout_constraintEnd_toEndOf="@id/large_circular_progress"/>
 
-    <!-- Estimated Time -->
+    <!-- Estimated Time for Entire Category -->
     <TextView
-        android:id="@+id/tv_estimated_time"
+        android:id="@+id/tv_estimated_time_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Estimated Time: 47 min"
+        android:text="Estimated Time: 120 min"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/circularProgressBar"
+        app:layout_constraintTop_toBottomOf="@id/large_circular_progress"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
 
-    <!-- Section Progress (Introduction, Experiment, Conclusion) -->
+    <!-- Container for Small Progress Bars -->
     <LinearLayout
-        android:id="@+id/progress_small"
+        android:id="@+id/ll_books_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
         android:layout_marginTop="24dp"
-        android:orientation="horizontal"
-        android:weightSum="3"
-        app:layout_constraintTop_toBottomOf="@id/tv_estimated_time"
+        app:layout_constraintTop_toBottomOf="@id/tv_estimated_time_category"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <!-- Introduction Section -->
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center">
-
-            <ProgressBar
-                android:id="@+id/progress_intro"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:indeterminate="false"
-                android:max="100"
-                android:progress="100"
-                android:progressDrawable="@drawable/circular_progress"
-                android:background="@drawable/progress_background"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/tv_intro_progress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="100%"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0 min"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Introduction"
-                    android:textSize="14sp"
-                    android:textStyle="italic" />
-            </LinearLayout>
-        </FrameLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/tv_estimated_time"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- Experiment Section -->
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center">
-
-            <ProgressBar
-                android:id="@+id/progress_experiment"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:indeterminate="false"
-                android:max="100"
-                android:progress="28"
-                android:background="@drawable/progress_background"
-                android:progressDrawable="@drawable/circular_progress"
-
-                />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/tv_experiment_progress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="28%"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="17 min"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Experiment"
-                    android:textSize="14sp"
-                    android:textStyle="italic" />
-            </LinearLayout>
-        </FrameLayout>
-
-        <!-- Conclusion Section -->
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center">
-
-            <ProgressBar
-                android:id="@+id/progress_conclusion"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:indeterminate="false"
-                android:max="100"
-                android:progress="5"
-                android:progressDrawable="@drawable/circular_progress"
-                android:background="@drawable/progress_background"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/tv_conclusion_progress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5%"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="8 min"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Conclusion"
-                    android:textSize="14sp"
-                    android:textStyle="italic" />
-            </LinearLayout>
-        </FrameLayout>
-    </LinearLayout>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

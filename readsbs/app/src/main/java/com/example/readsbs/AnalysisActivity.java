@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -50,7 +49,7 @@ public class AnalysisActivity extends AppCompatActivity {
 
         // Set static data directly
         setChartData(getStaticData());
-        tvSpeedValue.setText("214 wpm");
+        tvSpeedValue.setText("178 wpm");
         tvSessionValue.setText("15.3 minutes");
 
         // Set static advice
@@ -61,12 +60,12 @@ public class AnalysisActivity extends AppCompatActivity {
         RadioGroup bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.navigation_analysis) {
+            } else if (checkedId == R.id.navigation_read) {
+            View selectedButton = findViewById(R.id.navigation_read);
+            performClickAnimation3(selectedButton);
             } else if (checkedId == R.id.navigation_import) {
                 View selectedButton = findViewById(R.id.navigation_import);
                 performClickAnimation2(selectedButton);
-            } else if (checkedId == R.id.navigation_read) {
-                View selectedButton = findViewById(R.id.navigation_read);
-                performClickAnimation3(selectedButton);
             }
         });
         ((RadioButton) findViewById(R.id.navigation_analysis)).setChecked(true);
@@ -96,7 +95,7 @@ public class AnalysisActivity extends AppCompatActivity {
                         .scaleY(1f)
                         .setDuration(100)
                         .withEndAction(() -> {
-                            startActivity(new Intent(AnalysisActivity.this, AnalysisActivity.class));
+                            startActivity(new Intent(AnalysisActivity.this, BookActivity.class));
                         })
                         .start())
                 .start();
@@ -110,6 +109,8 @@ public class AnalysisActivity extends AppCompatActivity {
         dataSet.setCircleRadius(3f);
         dataSet.setValueTextColor(Color.BLACK);
         dataSet.setValueTextSize(10f);
+
+        dataSet.setDrawValues(false);
 
         LineData lineData = new LineData(dataSet);
         lineChart.setData(lineData);
