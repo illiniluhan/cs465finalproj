@@ -3,24 +3,23 @@ package com.example.readsbs;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.DocumentReference;
+
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
     private EditText path;
@@ -37,8 +36,14 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser fbuser = FirebaseAuth.getInstance().getCurrentUser();
         uid = fbuser.getUid();
 
+        // Main page
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Fade animation with logo fix
+        ImageView logo = findViewById(R.id.logo);
+        Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in_out);
+        logo.startAnimation(fadeIn);
 
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
@@ -54,11 +59,11 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.navigation_import) {
             } else if (checkedId == R.id.navigation_read) {
-                Toast.makeText(MainActivity.this, "Redirecting", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this, ReadActivity.class));
+                View selectedButton = findViewById(R.id.navigation_read);
+                performClickAnimation(selectedButton);
             } else if (checkedId == R.id.navigation_analysis) {
-                Toast.makeText(MainActivity.this, "Redirecting", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this, AnalysisActivity.class));
+                View selectedButton = findViewById(R.id.navigation_analysis);
+                performClickAnimation2(selectedButton);
             }
         });
         ((RadioButton) findViewById(R.id.navigation_import)).setChecked(true);
@@ -71,5 +76,44 @@ public class MainActivity extends AppCompatActivity {
     private void submit_to_parse() {
         String parse_path = path.getText().toString().trim();
 
+        if (parse_path.isEmpty()) {
+            // Fail
+            Toast.makeText(MainActivity.this, "Please enter a valid path.", Toast.LENGTH_SHORT).show();
+        } else {
+            // Success
+            Toast.makeText(MainActivity.this, "Submit Successful!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    private void performClickAnimation(View view) {
+        view.animate()
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(100)
+                .withEndAction(() -> view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(100)
+                        .withEndAction(() -> {
+                            startActivity(new Intent(MainActivity.this, BookActivity.class));
+                        })
+                        .start())
+                .start();
+    }
+    private void performClickAnimation2(View view) {
+        view.animate()
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(100)
+                .withEndAction(() -> view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(100)
+                        .withEndAction(() -> {
+                            startActivity(new Intent(MainActivity.this, AnalysisActivity.class));
+                        })
+                        .start())
+                .start();
     }
 }

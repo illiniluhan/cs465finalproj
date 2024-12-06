@@ -3,4 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="klyblue">#002FA7</color>
+    <color name="aaa">#A59DF087</color>
+    <color name="bbb">#BB000207</color>
+    <color name="ccc">#EDEAEA</color>
+    <color name="checked">#F51B359E</color>
+    <color name="unchecked">#00000000</color>
 </resources>
