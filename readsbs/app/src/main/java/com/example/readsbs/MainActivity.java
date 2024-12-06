@@ -3,24 +3,21 @@ package com.example.readsbs;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import android.view.View;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.DocumentReference;
+
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
     private EditText path;
@@ -37,8 +34,14 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser fbuser = FirebaseAuth.getInstance().getCurrentUser();
         uid = fbuser.getUid();
 
+        // Main page
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Fade animation with logo fix
+        ImageView logo = findViewById(R.id.logo);
+        Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in_out);
+        logo.startAnimation(fadeIn);
 
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
@@ -55,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             if (checkedId == R.id.navigation_import) {
             } else if (checkedId == R.id.navigation_read) {
                 Toast.makeText(MainActivity.this, "Redirecting", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this, ReadActivity.class));
+                startActivity(new Intent(MainActivity.this, BookActivity.class));
             } else if (checkedId == R.id.navigation_analysis) {
                 Toast.makeText(MainActivity.this, "Redirecting", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(MainActivity.this, AnalysisActivity.class));

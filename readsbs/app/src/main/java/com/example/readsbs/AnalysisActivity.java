@@ -41,7 +41,7 @@ public class AnalysisActivity extends AppCompatActivity {
                 startActivity(new Intent(AnalysisActivity.this, MainActivity.class));
             } else if (checkedId == R.id.navigation_read) {
                 Toast.makeText(AnalysisActivity.this, "Redirecting", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(AnalysisActivity.this, ReadActivity.class));
+                startActivity(new Intent(AnalysisActivity.this, BookActivity.class));
             }
         });
         ((RadioButton) findViewById(R.id.navigation_analysis)).setChecked(true);

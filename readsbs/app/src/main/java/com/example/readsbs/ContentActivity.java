@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.view.WindowManager;
 
@@ -43,7 +44,7 @@ public class ContentActivity extends AppCompatActivity {
     private ConstraintLayout container;
     private Button setting;
     private boolean isExpanded = false;
-    private Button back;
+    private ImageView back;
     private TextView font_seek_des;
     private TextView bri_seek_des;
 
