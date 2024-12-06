@@ -255,7 +255,6 @@ public class ContentActivity extends AppCompatActivity {
                     case "White":
                         cont_container = findViewById(R.id.cont_container);
                         cont_container.setBackgroundColor(Color.WHITE);
-                        cont_container.setBackgroundColor(ContextCompat.getColor(ContentActivity.this, R.color.ccc));
                         content.setTextColor(Color.BLACK);
                         colorSpinner.setVisibility(View.GONE);
                         font_sb.setVisibility(View.VISIBLE);
@@ -285,7 +284,6 @@ public class ContentActivity extends AppCompatActivity {
                         content.setTypeface(typeface1);
                         cont_container = findViewById(R.id.cont_container);
                         cont_container.setBackgroundColor(Color.WHITE);
-                        cont_container.setBackgroundColor(ContextCompat.getColor(ContentActivity.this, R.color.ccc));
                         content.setTextColor(Color.BLACK);
                         float brightness = 80 / 100.0f;
                         WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
@@ -300,7 +298,7 @@ public class ContentActivity extends AppCompatActivity {
                         Typeface typeface2 = ResourcesCompat.getFont(ContentActivity.this, R.font.bionic);
                         content.setTypeface(typeface2);
                         cont_container = findViewById(R.id.cont_container);
-                        cont_container.setBackgroundColor(ContextCompat.getColor(ContentActivity.this, R.color.ccc));
+                        cont_container.setBackgroundColor(Color.WHITE);
                         content.setTextColor(Color.BLACK);
                         float brightness2 = 80 / 100.0f;
                         WindowManager.LayoutParams layoutParam2 = getWindow().getAttributes();
@@ -315,7 +313,7 @@ public class ContentActivity extends AppCompatActivity {
                         Typeface typeface4 = ResourcesCompat.getFont(ContentActivity.this, R.font.helvetica);
                         content.setTypeface(typeface4);
                         cont_container = findViewById(R.id.cont_container);
-                        cont_container.setBackgroundColor(ContextCompat.getColor(ContentActivity.this, R.color.ccc));
+                        cont_container.setBackgroundColor(Color.WHITE);
                         content.setTextColor(Color.BLACK);
                         float brightness3 = 80 / 100.0f;
                         WindowManager.LayoutParams layoutParam3 = getWindow().getAttributes();

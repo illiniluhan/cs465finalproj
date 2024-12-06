@@ -33,11 +33,11 @@ public class BookActivity extends AppCompatActivity {
         bottomNavigation.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.navigation_read) {
             } else if (checkedId == R.id.navigation_import) {
-                Toast.makeText(BookActivity.this, "Redirecting", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(BookActivity.this, MainActivity.class));
+                View selectedButton = findViewById(R.id.navigation_import);
+                performClickAnimation2(selectedButton);
             } else if (checkedId == R.id.navigation_analysis) {
-                Toast.makeText(BookActivity.this, "Redirecting", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(BookActivity.this, AnalysisActivity.class));
+                View selectedButton = findViewById(R.id.navigation_analysis);
+                performClickAnimation3(selectedButton);
             }
         });
         ((RadioButton) findViewById(R.id.navigation_read)).setChecked(true);
@@ -79,6 +79,37 @@ public class BookActivity extends AppCompatActivity {
                         .withEndAction(() -> {
                             Intent intent = new Intent(BookActivity.this, DetailActivity.class);
                             startActivity(intent);
+                        })
+                        .start())
+                .start();
+    }
+
+    private void performClickAnimation2(View view) {
+        view.animate()
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(100)
+                .withEndAction(() -> view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(100)
+                        .withEndAction(() -> {
+                            startActivity(new Intent(BookActivity.this, MainActivity.class));
+                        })
+                        .start())
+                .start();
+    }
+    private void performClickAnimation3(View view) {
+        view.animate()
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(100)
+                .withEndAction(() -> view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(100)
+                        .withEndAction(() -> {
+                            startActivity(new Intent(BookActivity.this, AnalysisActivity.class));
                         })
                         .start())
                 .start();

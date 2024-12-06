@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -57,11 +58,11 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.navigation_import) {
             } else if (checkedId == R.id.navigation_read) {
-                Toast.makeText(MainActivity.this, "Redirecting", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this, BookActivity.class));
+                View selectedButton = findViewById(R.id.navigation_read);
+                performClickAnimation(selectedButton);
             } else if (checkedId == R.id.navigation_analysis) {
-                Toast.makeText(MainActivity.this, "Redirecting", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this, AnalysisActivity.class));
+                View selectedButton = findViewById(R.id.navigation_analysis);
+                performClickAnimation2(selectedButton);
             }
         });
         ((RadioButton) findViewById(R.id.navigation_import)).setChecked(true);
@@ -74,5 +75,36 @@ public class MainActivity extends AppCompatActivity {
     private void submit_to_parse() {
         String parse_path = path.getText().toString().trim();
 
+    }
+
+    private void performClickAnimation(View view) {
+        view.animate()
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(100)
+                .withEndAction(() -> view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(100)
+                        .withEndAction(() -> {
+                            startActivity(new Intent(MainActivity.this, BookActivity.class));
+                        })
+                        .start())
+                .start();
+    }
+    private void performClickAnimation2(View view) {
+        view.animate()
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(100)
+                .withEndAction(() -> view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(100)
+                        .withEndAction(() -> {
+                            startActivity(new Intent(MainActivity.this, AnalysisActivity.class));
+                        })
+                        .start())
+                .start();
     }
 }

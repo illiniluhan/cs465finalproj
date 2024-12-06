@@ -665,8 +665,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
-                    android:background="@drawable/radio_button_selector"
-                    android:gravity="center"
+                    android:background="@color/radio_button_selector"                    android:gravity="center"
                     android:padding="8dp"
                     android:text="Read" />
 
@@ -676,8 +675,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
-                    android:background="@drawable/radio_button_selector"
-                    android:gravity="center"
+                    android:background="@color/radio_button_selector"                    android:gravity="center"
                     android:padding="8dp"
                     android:text="Import" />
 
@@ -687,8 +685,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
-                    android:background="@drawable/radio_button_selector"
-                    android:gravity="center"
+                    android:background="@color/radio_button_selector"                    android:gravity="center"
                     android:padding="8dp"
                     android:text="Analysis" />
             </RadioGroup>

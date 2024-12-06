@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/read"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
     android:background="@drawable/textbox_ui"
     tools:context=".ReadActivity">
 
-        <LinearLayout
-            android:id="@+id/book_section"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="top"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp">
+    <LinearLayout
+        android:id="@+id/book_section"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="top"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
                 android:layout_width="match_parent"
@@ -303,6 +305,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -311,8 +314,10 @@
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:divider="@drawable/navi_line"
+            android:showDividers="middle">
 
             <RadioButton
                 android:id="@+id/navigation_read"
@@ -320,9 +325,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
-                android:background="@drawable/radio_button_selector"
-                android:gravity="center"
+                android:background="@color/radio_button_selector"                android:gravity="center"
                 android:padding="8dp"
+                android:textColor="@drawable/text_color_sele"
                 android:text="Read" />
 
             <RadioButton
@@ -331,8 +336,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
-                android:background="@drawable/radio_button_selector"
-                android:gravity="center"
+                android:textColor="@drawable/text_color_sele"
+                android:background="@color/radio_button_selector"                android:gravity="center"
                 android:padding="8dp"
                 android:text="Import" />
 
@@ -341,9 +346,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@drawable/text_color_sele"
                 android:button="@null"
-                android:background="@drawable/radio_button_selector"
-                android:gravity="center"
+                android:background="@color/radio_button_selector"                android:gravity="center"
                 android:padding="8dp"
                 android:text="Analysis" />
         </RadioGroup>
