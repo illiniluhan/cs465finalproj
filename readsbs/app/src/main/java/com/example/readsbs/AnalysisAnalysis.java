@@ -45,7 +45,6 @@ public class AnalysisAnalysis extends AppCompatActivity {
 
         lineChart = findViewById(R.id.line_chart);
 
-        // Set initial data ("Read" as default)
         updateUIForSection("read");
 
         // Button click listeners
@@ -56,9 +55,6 @@ public class AnalysisAnalysis extends AppCompatActivity {
         btnToDo.setOnClickListener(v -> updateUIForSection("to_do"));
     }
 
-    /**
-     * Updates the chart, stats, and advice based on the selected section.
-     */
     private void updateUIForSection(String section) {
         // Update the chart
         setChartData(getDataForSection(section));
@@ -74,9 +70,6 @@ public class AnalysisAnalysis extends AppCompatActivity {
         tvAdviceToDo.setText("• " + advice.toDoAdvice);
     }
 
-    /**
-     * Populates the LineChart with entries.
-     */
     private void setChartData(List<Entry> entries) {
         LineDataSet dataSet = new LineDataSet(entries, "Reading Speed (WPM)");
         dataSet.setColor(Color.BLUE);
@@ -159,17 +152,14 @@ public class AnalysisAnalysis extends AppCompatActivity {
         Advice advice = new Advice();
         switch (section) {
             case "read":
-                // User has read several books. Advice might be more about improving comprehension or exploring new genres.
                 advice.inProcessAdvice = "Try focusing on challenging texts to increase comprehension.";
                 advice.toDoAdvice = "Explore new genres or authors you haven't read yet.";
                 break;
             case "in_progress":
-                // User currently reading. Advice might be about maintaining consistency.
                 advice.inProcessAdvice = "Keep a steady pace, schedule short reading bursts.";
                 advice.toDoAdvice = "Plan your next read and set daily reading goals.";
                 break;
             case "to_do":
-                // User has not read much yet, advice about starting good habits.
                 advice.inProcessAdvice = "Begin with short sessions to build momentum.";
                 advice.toDoAdvice = "Create a reading list to guide your reading journey.";
                 break;
@@ -177,17 +167,12 @@ public class AnalysisAnalysis extends AppCompatActivity {
         return advice;
     }
 
-    /**
-     * Simple holder class for stats.
-     */
+
     private static class Stats {
         float averageSpeed;
         float averageSessionTime;
     }
 
-    /**
-     * Simple holder class for advice.
-     */
     private static class Advice {
         String inProcessAdvice;
         String toDoAdvice;

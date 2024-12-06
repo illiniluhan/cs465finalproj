@@ -21,6 +21,8 @@
         <activity android:name=".AnalysisProgress" android:exported="true" android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".ReminderActivity" android:exported="true" android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".AnalysisSelectReading" android:exported="true" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".BookActivity" android:exported="true" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".DetailActivity" android:exported="true" android:windowSoftInputMode="adjustResize"/>
 
         <activity
             android:name=".LoginActivity"

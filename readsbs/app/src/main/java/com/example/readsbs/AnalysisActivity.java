@@ -3,6 +3,7 @@ package com.example.readsbs;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -60,15 +61,45 @@ public class AnalysisActivity extends AppCompatActivity {
         RadioGroup bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.navigation_analysis) {
-            } else if (checkedId == R.id.navigation_read) {
-                Toast.makeText(AnalysisActivity.this, "Redirecting", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(AnalysisActivity.this, ReadActivity.class));
             } else if (checkedId == R.id.navigation_import) {
-                Toast.makeText(AnalysisActivity.this, "Redirecting", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(AnalysisActivity.this, MainActivity.class));
+                View selectedButton = findViewById(R.id.navigation_import);
+                performClickAnimation2(selectedButton);
+            } else if (checkedId == R.id.navigation_read) {
+                View selectedButton = findViewById(R.id.navigation_read);
+                performClickAnimation3(selectedButton);
             }
         });
         ((RadioButton) findViewById(R.id.navigation_analysis)).setChecked(true);
+    }
+    private void performClickAnimation2(View view) {
+        view.animate()
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(100)
+                .withEndAction(() -> view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(100)
+                        .withEndAction(() -> {
+                            startActivity(new Intent(AnalysisActivity.this, MainActivity.class));
+                        })
+                        .start())
+                .start();
+    }
+    private void performClickAnimation3(View view) {
+        view.animate()
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(100)
+                .withEndAction(() -> view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(100)
+                        .withEndAction(() -> {
+                            startActivity(new Intent(AnalysisActivity.this, AnalysisActivity.class));
+                        })
+                        .start())
+                .start();
     }
 
     private void setChartData(List<Entry> entries) {
