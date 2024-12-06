@@ -9,6 +9,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -16,6 +17,7 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,14 +27,15 @@ public class AnalysisActivity extends AppCompatActivity {
     private TextView read_progress;
     private TextView tvAverageSpeed, tvSpeedValue, tvSessionTime, tvSessionValue, tvAdviceTitle, tvAdviceInProcess, tvAdviceToDo;
     private LineChart lineChart;
+    private MaterialCardView reading_prog_card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analysis);
 
-        read_progress = findViewById(R.id.reading_prog);
-        read_progress.setOnClickListener(v -> {
+        reading_prog_card = findViewById(R.id.reading_prog_card);
+        reading_prog_card.setOnClickListener(v -> {
             Intent intent = new Intent(AnalysisActivity.this, AnalysisSelectReading.class);
             startActivity(intent);
         });
