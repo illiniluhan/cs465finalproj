@@ -28,7 +28,6 @@
             android:textSize="28sp" />
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/user_info"
         android:layout_width="0dp"
@@ -73,9 +72,8 @@
                 android:textSize="18dp" />
 
         </LinearLayout>
-
-
     </LinearLayout>
+
     <TextView
         android:id="@+id/reading_prog"
         android:layout_width="match_parent"
@@ -87,23 +85,126 @@
         android:fontFamily="@font/timesnewroman"
         android:background="@drawable/border"
         android:textSize="20dp"
-        android:text="Reading Progress">
+        android:text="Reading Progress" />
 
-    </TextView>
-    <TextView
-        android:id="@+id/read_analy"
-        android:layout_width="match_parent"
-        android:layout_height="88dp"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/reading_prog"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/border"
-        android:fontFamily="@font/timesnewroman"
-        android:textSize="20dp"
+
+    <!-- Line Chart -->
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/line_chart"
+        android:layout_width="380dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Reading Analysis">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reading_prog" />
 
-    </TextView>
+    <!-- Statistics Section: Average reading speed -->
+    <LinearLayout
+        android:id="@+id/statistics_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/line_chart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="15dp"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/tv_average_speed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Average reading speed"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_speed_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="-- wpm"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Statistics Section: Average reading session time -->
+    <LinearLayout
+        android:id="@+id/statistics_session_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/statistics_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="15dp"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/tv_session_time"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Average reading session time"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_session_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="-- minutes"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Advice Section Title -->
+    <TextView
+        android:id="@+id/tv_advice_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/statistics_session_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="15dp"
+        android:text="Advice for future work:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- Dynamic advice lines -->
+    <TextView
+        android:id="@+id/tv_advice_in_process"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_advice_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="15dp"
+        android:text="• In Process advice goes here"
+        android:textColor="#000000"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_advice_to_do"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_advice_in_process"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="15dp"
+        android:text="• To-Do advice goes here"
+        android:textColor="#000000"
+        android:textSize="14sp" />
 
     <LinearLayout
         android:id="@+id/bottom_navigation_container"

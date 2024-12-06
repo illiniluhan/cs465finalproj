@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tv_article_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Article 1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        />
+
     <RelativeLayout
+        android:id="@+id/main_content_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_article_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <!-- Left aligned icon -->
-
-        <!-- Header options (Read, In process, To-Do) -->
+        <!-- Back Button -->
         <Button
             android:id="@+id/back_btn2"
             android:layout_width="60dp"
@@ -31,12 +52,13 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_read"
+                android:id="@+id/btn_completed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:background="@drawable/circle_button_background"
-                android:text="Read"
+                android:backgroundTint="#51B0D1"
+                android:text="Completed"
+                android:textColor="#FFFFFF"
                 android:textSize="14sp" />
 
             <Button
@@ -44,57 +66,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:background="@drawable/circle_button_background"
-                android:text="In progress"
+                android:backgroundTint="#51B0D1"
+                android:text="In Progress"
+                android:textColor="#FFFFFF"
                 android:textSize="14sp" />
 
             <Button
                 android:id="@+id/btn_to_do"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/circle_button_background"
+                android:backgroundTint="#51B0D1"
                 android:text="To-Do"
+                android:textColor="#FFFFFF"
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <!-- Graph placeholder -->
-        <View
-            android:id="@+id/graph_placeholder"
-
+        <!-- Line Chart -->
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/line_chart"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_below="@id/header_buttons"
-            android:layout_marginTop="16dp"
-            android:background="#D3D3D3"
-            android:text="Progress graph palceholder"
-            android:textSize="100sp"
-            />
+            android:layout_marginTop="16dp" />
 
-        <RelativeLayout
-            android:id="@+id/graph_placeholder2"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_below="@id/header_buttons"
-            android:layout_marginTop="16dp"
-            android:background="#D3D3D3">
-
-            <TextView
-                android:id="@+id/tv_graph_placeholder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Graph Placeholder"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#000000" />
-        </RelativeLayout>
-
-        <!-- Statistics and advice sections -->
+        <!-- Statistics Section: Average reading speed -->
         <LinearLayout
             android:id="@+id/statistics_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/graph_placeholder"
+            android:layout_below="@id/line_chart"
             android:layout_marginTop="16dp"
             android:orientation="horizontal"
             android:weightSum="2">
@@ -114,11 +114,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="end"
-                android:text="214 wpm"
+                android:text="-- wpm"
                 android:textColor="#000000"
                 android:textSize="16sp" />
         </LinearLayout>
 
+        <!-- Statistics Section: Average reading session time -->
         <LinearLayout
             android:id="@+id/statistics_session_time"
             android:layout_width="match_parent"
@@ -130,7 +131,7 @@
 
             <TextView
                 android:id="@+id/tv_session_time"
-                android:layout_width="193dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Average reading session time"
@@ -143,12 +144,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="end"
-                android:text="15.3 minutes"
+                android:text="-- minutes"
                 android:textColor="#000000"
                 android:textSize="16sp" />
         </LinearLayout>
 
-        <!-- Advice Section -->
+        <!-- Advice Section Title -->
         <TextView
             android:id="@+id/tv_advice_title"
             android:layout_width="match_parent"
@@ -160,13 +161,14 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
+        <!-- Dynamic advice lines -->
         <TextView
             android:id="@+id/tv_advice_in_process"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_advice_title"
             android:layout_marginTop="8dp"
-            android:text="• In Process"
+            android:text="• In Process advice goes here"
             android:textColor="#000000"
             android:textSize="14sp" />
 
@@ -176,8 +178,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_advice_in_process"
             android:layout_marginTop="4dp"
-            android:text="• To-Do"
+            android:text="• To-Do advice goes here"
             android:textColor="#000000"
             android:textSize="14sp" />
+
     </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

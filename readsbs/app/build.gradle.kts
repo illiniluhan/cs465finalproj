@@ -1,6 +1,15 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.gms.google.services)
+
+}
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        // jcenter()
+
+    }
 }
 
 android {
@@ -42,6 +51,10 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.firebase.firestore)
+    //implementation(libs.mpandroidchart)
+    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

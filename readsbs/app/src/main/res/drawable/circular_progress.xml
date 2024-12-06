@@ -1,13 +1,5 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Circle -->
-    <item android:id="@android:id/background">
-        <shape android:shape="ring"
-            android:thicknessRatio="16">
-            <solid android:color="#e0e0e0" />
-        </shape>
-    </item>
-
     <!-- Progress -->
     <item android:id="@android:id/progress">
         <rotate
@@ -15,7 +7,7 @@
             android:toDegrees="270">
             <shape android:shape="ring"
                 android:thicknessRatio="16">
-                <solid android:color="#51B0D1" />
+                <solid android:color="#002FA7" />
             </shape>
         </rotate>
     </item>

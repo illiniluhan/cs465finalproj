@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
         submit_btn = findViewById(R.id.submit_path);
         path = findViewById(R.id.import_path);
-        RadioGroup bottomNavigation = findViewById(R.id.bottom_navigation);
 
+        RadioGroup bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.navigation_import) {
             } else if (checkedId == R.id.navigation_read) {

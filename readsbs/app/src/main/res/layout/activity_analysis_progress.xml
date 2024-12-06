@@ -7,185 +7,111 @@
     android:layout_height="match_parent"
     tools:context=".AnalysisActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="415dp"
-        android:layout_height="735dp"
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/back_btn3"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="7dp"
+        android:background="@android:color/transparent"
+        android:text="&lt;"
+        android:textColor="#8866EF"
+        android:textSize="26sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tv_article_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".ReadingAnalysisActivity">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Back Button -->
+    <!-- Circular Progress Bar -->
+    <ProgressBar
+        android:id="@+id/circularProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="32dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="76"
+        android:progressDrawable="@drawable/circular_progress"
+        android:background="@drawable/progress_background_large"
 
-        <!-- Title -->
+        app:layout_constraintTop_toBottomOf="@id/tv_article_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
-            android:id="@+id/back_btn3"
-            android:layout_width="60dp"
+    <!-- Progress Percentage -->
+    <TextView
+        android:id="@+id/tv_progress_percentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="76%"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/circularProgressBar"
+        app:layout_constraintBottom_toBottomOf="@id/circularProgressBar"
+        app:layout_constraintStart_toStartOf="@id/circularProgressBar"
+        app:layout_constraintEnd_toEndOf="@id/circularProgressBar" />
+
+    <!-- Estimated Time -->
+    <TextView
+        android:id="@+id/tv_estimated_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Estimated Time: 47 min"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/circularProgressBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Section Progress (Introduction, Experiment, Conclusion) -->
+    <LinearLayout
+        android:id="@+id/progress_small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@id/tv_estimated_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Introduction Section -->
+        <FrameLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="87dp"
-            android:layout_marginBottom="300dp"
-            android:background="@android:color/transparent"
-            android:text="&lt;"
-            android:textColor="#8866EF"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/progress_small"
-            app:layout_constraintEnd_toStartOf="@+id/tv_article_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_weight="1"
+            android:gravity="center">
 
-        <LinearLayout
-            android:id="@+id/progress_small"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginEnd="8dp"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_estimated_time">
+            <ProgressBar
+                android:id="@+id/progress_intro"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="100"
+                android:progressDrawable="@drawable/circular_progress"
+                android:background="@drawable/progress_background"
+                />
 
-            <!-- Introduction Section -->
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <!-- Introduction Circular Progress -->
-                <ProgressBar
-                    android:id="@+id/progress_intro"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:indeterminate="false"
-                    android:max="100"
-                    android:progress="100"
-                    android:progressDrawable="@drawable/circular_progress" />
-
-                <!-- Introduction Text -->
-            </LinearLayout>
-
-            <!-- Experiment Section -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <!-- Experiment Circular Progress -->
-                <ProgressBar
-                    android:id="@+id/progress_experiment"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:indeterminate="false"
-                    android:max="100"
-                    android:progress="28"
-                    android:progressDrawable="@drawable/circular_progress" />
-
-                <!-- Experiment Text -->
-            </LinearLayout>
-
-            <!-- Conclusion Section -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <!-- Conclusion Circular Progress -->
-                <ProgressBar
-                    android:id="@+id/progress_conclusion"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:indeterminate="false"
-                    android:max="100"
-                    android:progress="5"
-                    android:progressDrawable="@drawable/circular_progress" />
-
-                <!-- Conclusion Text -->
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Circular Progress Bar -->
-        <TextView
-            android:id="@+id/tv_article_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="168dp"
-            android:text="Article 1"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ProgressBar
-            android:id="@+id/circularProgressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="32dp"
-            android:indeterminate="false"
-            android:max="100"
-            android:progress="76"
-            android:progressDrawable="@drawable/circular_progress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_article_title" />
-
-        <!-- Progress Percentage -->
-        <TextView
-            android:id="@+id/tv_progress_percentage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="76%"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/circularProgressBar"
-            app:layout_constraintEnd_toEndOf="@id/circularProgressBar"
-            app:layout_constraintStart_toStartOf="@id/circularProgressBar"
-            app:layout_constraintTop_toTopOf="@id/circularProgressBar" />
-
-        <!-- Estimated Time -->
-        <TextView
-            android:id="@+id/tv_estimated_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Estimated Time: 47 min"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/circularProgressBar" />
-
-        <!-- Section Progress (Introduction, Experiment, Conclusion) -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_estimated_time">
-
-            <!-- Introduction Section -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/tv_intro_progress"
@@ -208,14 +134,44 @@
                     android:textSize="14sp"
                     android:textStyle="italic" />
             </LinearLayout>
+        </FrameLayout>
+        <TextView
+            android:id="@+id/tv_book_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_estimated_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- Experiment Section -->
+        <!-- Experiment Section -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ProgressBar
+                android:id="@+id/progress_experiment"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="28"
+                android:background="@drawable/progress_background"
+                android:progressDrawable="@drawable/circular_progress"
+
+                />
+
+
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/tv_experiment_progress"
@@ -238,14 +194,32 @@
                     android:textSize="14sp"
                     android:textStyle="italic" />
             </LinearLayout>
+        </FrameLayout>
 
-            <!-- Conclusion Section -->
+        <!-- Conclusion Section -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ProgressBar
+                android:id="@+id/progress_conclusion"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="5"
+                android:progressDrawable="@drawable/circular_progress"
+                android:background="@drawable/progress_background"
+                />
+
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/tv_conclusion_progress"
@@ -268,9 +242,7 @@
                     android:textSize="14sp"
                     android:textStyle="italic" />
             </LinearLayout>
-        </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
 
-        <!-- Bottom Navigation -->
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
