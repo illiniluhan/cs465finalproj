@@ -2,20 +2,22 @@
 <resources>
     <string-array name="fonts_options">
         <item>Choose Font</item>
-        <item>Default</item>
+        <item>Helvetica</item>
+        <item>Times New Roman</item>
         <item>Bionic</item>
         <item>New York</item>
+
     </string-array>
     <string-array name="color_options">
-        <item>Choose Background Color</item>
-        <item>Default</item>
+        <item>Choose Color</item>
+        <item>White</item>
         <item>Yellow</item>
         <item>Green</item>
         <item>Black</item>
     </string-array>
     <string-array name="mode_options">
         <item>Choose Mode</item>
-        <item>Default</item>
+        <item>Casual</item>
         <item>Speed</item>
         <item>In-depth</item>
     </string-array>

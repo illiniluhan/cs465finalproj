@@ -6,6 +6,9 @@ import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.view.WindowManager;
 
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -22,7 +26,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -42,20 +48,25 @@ public class ContentActivity extends AppCompatActivity {
     private SeekBar brightnessSeekBar;
     private TextView content;
     private ConstraintLayout container;
-    private Button setting;
-    private boolean isExpanded = false;
+    private CardView cont_container;
     private ImageView back;
     private TextView font_seek_des;
     private TextView bri_seek_des;
+    private CardView font_select;
+    private CardView color_select;
+    private CardView mode_select;
+    private CardView shouqi;
+    private CardView menu_container;
+    private ImageView fang_btn;
+    private LinearLayout font_sb;
+    private LinearLayout color_sb;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String sectionData = getIntent().getStringExtra("section_data");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
         text = findViewById(R.id.title);
-        text.setText(sectionData);
         back = findViewById(R.id.back_btn);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,30 +75,9 @@ public class ContentActivity extends AppCompatActivity {
             }
         });
 
-        setting = findViewById(R.id.setting_btn);
-        setting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isExpanded) {
-                    fontSpinner.setVisibility(View.GONE);
-                    colorSpinner.setVisibility(View.GONE);
-                    modeSpinner.setVisibility(View.GONE);
-                    brightnessSeekBar.setVisibility(View.GONE);
-                    textSizeSeekBar.setVisibility(View.GONE);
-                    font_seek_des.setVisibility(View.GONE);
-                    bri_seek_des.setVisibility(View.GONE);
-                } else {
-                    fontSpinner.setVisibility(View.VISIBLE);
-                    colorSpinner.setVisibility(View.VISIBLE);
-                    modeSpinner.setVisibility(View.VISIBLE);
-                    brightnessSeekBar.setVisibility(View.VISIBLE);
-                    textSizeSeekBar.setVisibility(View.VISIBLE);
-                    font_seek_des.setVisibility(View.VISIBLE);
-                    bri_seek_des.setVisibility(View.VISIBLE);
-                }
-                isExpanded = !isExpanded;
-            }
-        });
+        menu_container = findViewById(R.id.menu_container);
+        font_sb = findViewById(R.id.font_sb);
+        color_sb = findViewById(R.id.color_sb);
 
         fontSpinner = findViewById(R.id.font_selection);
         setupFontSpinner(fontSpinner);
@@ -100,8 +90,49 @@ public class ContentActivity extends AppCompatActivity {
 
         font_seek_des = findViewById(R.id.seekbar_font_des);
         bri_seek_des = findViewById(R.id.seekbar_bright_des);
+
+        font_select = findViewById(R.id.font_select);
+        color_select = findViewById(R.id.color_select);
+        mode_select = findViewById(R.id.mode_select);
+        shouqi = findViewById(R.id.shouqi);
+        fang_btn = findViewById(R.id.fang_btn);
+
+        font_select.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                performClickAnimation(view);
+            }
+        });
+        color_select.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                performClickAnimation2(view);
+            }
+        });
+        mode_select.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                performClickAnimation3(view);
+            }
+        });
+        shouqi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                performClickAnimation4(view);
+            }
+        });
+        fang_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                menu_container.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+
+
         content = findViewById(R.id.read_content);
-        textSizeSeekBar = findViewById(R.id.textsize_seekbar);
+        textSizeSeekBar = findViewById(R.id.textSizeSeekBar);
         textSizeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -118,7 +149,8 @@ public class ContentActivity extends AppCompatActivity {
             }
         });
 
-        brightnessSeekBar = findViewById(R.id.brightness_seekbar);
+        brightnessSeekBar = findViewById(R.id.brightnessSeekBar);
+
         brightnessSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -147,25 +179,36 @@ public class ContentActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedFont = parent.getItemAtPosition(position).toString();
+//                System.out.println("select："+selectedFont);
+//                if (!selectedFont.equals(" ")){fontSpinner.setVisibility(View.GONE);}
                 switch (selectedFont) {
-                    case "Choose Font":
-                        Toast.makeText(ContentActivity.this, "Please choose font", Toast.LENGTH_SHORT).show();
-                        break;
                     case "New York":
                         Typeface typeface1 = ResourcesCompat.getFont(ContentActivity.this, R.font.newyork);
                         content.setTypeface(typeface1);
+                        fontSpinner.setVisibility(View.GONE);
                         break;
                     case "Bionic":
                         Typeface typeface2 = ResourcesCompat.getFont(ContentActivity.this, R.font.bionic);
                         content.setTypeface(typeface2);
+                        fontSpinner.setVisibility(View.GONE);
+                        font_sb.setVisibility(View.VISIBLE);
+                        color_sb.setVisibility(View.VISIBLE);
                         break;
-                    case "Default":
+                    case "Times New Roman":
                         Typeface typeface3 = ResourcesCompat.getFont(ContentActivity.this, R.font.timesnewroman);
                         content.setTypeface(typeface3);
-                    default:
-                        Typeface typeface4 = ResourcesCompat.getFont(ContentActivity.this, R.font.timesnewroman);
-                        content.setTypeface(typeface4);
+                        fontSpinner.setVisibility(View.GONE);
+                        font_sb.setVisibility(View.VISIBLE);
+                        color_sb.setVisibility(View.VISIBLE);
                         break;
+                    case "Helvetica":
+                        Typeface typeface4 = ResourcesCompat.getFont(ContentActivity.this, R.font.helvetica);
+                        content.setTypeface(typeface4);
+                        fontSpinner.setVisibility(View.GONE);
+                        font_sb.setVisibility(View.VISIBLE);
+                        color_sb.setVisibility(View.VISIBLE);
+                        break;
+
                 }
             }
 
@@ -185,52 +228,38 @@ public class ContentActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedColor = parent.getItemAtPosition(position).toString();
                 switch (selectedColor) {
-                    case "Choose Background Color":
-                        Toast.makeText(ContentActivity.this, "Please choose background color", Toast.LENGTH_SHORT).show();
-                        break;
                     case "Yellow":
-                        container = findViewById(R.id.content_container);
-                        container.setBackgroundColor(Color.YELLOW);
-                        fontSpinner.setBackgroundColor(Color.YELLOW);
-                        colorSpinner.setBackgroundColor(Color.YELLOW);
-                        modeSpinner.setBackgroundColor(Color.YELLOW);
-                        textSizeSeekBar.setBackgroundColor(Color.YELLOW);
-                        brightnessSeekBar.setBackgroundColor(Color.YELLOW);
-                        font_seek_des.setBackgroundColor(Color.YELLOW);
-                        bri_seek_des.setBackgroundColor(Color.YELLOW);
+                        cont_container = findViewById(R.id.cont_container);
+                        cont_container.setBackgroundColor(Color.parseColor("#BAEFDE73"));
+                        content.setTextColor(Color.BLACK);
+                        colorSpinner.setVisibility(View.GONE);
+                        font_sb.setVisibility(View.VISIBLE);
+                        color_sb.setVisibility(View.VISIBLE);
                         break;
                     case "Green":
-                        container = findViewById(R.id.content_container);
-                        container.setBackgroundColor(Color.GREEN);
-                        fontSpinner.setBackgroundColor(Color.GREEN);
-                        colorSpinner.setBackgroundColor(Color.GREEN);
-                        modeSpinner.setBackgroundColor(Color.GREEN);
-                        textSizeSeekBar.setBackgroundColor(Color.GREEN);
-                        brightnessSeekBar.setBackgroundColor(Color.GREEN);
-                        font_seek_des.setBackgroundColor(Color.GREEN);
-                        bri_seek_des.setBackgroundColor(Color.GREEN);
+                        cont_container = findViewById(R.id.cont_container);
+                        cont_container.setBackgroundColor(ContextCompat.getColor(ContentActivity.this, R.color.aaa));
+                        content.setTextColor(Color.BLACK);
+                        colorSpinner.setVisibility(View.GONE);
+                        font_sb.setVisibility(View.VISIBLE);
+                        color_sb.setVisibility(View.VISIBLE);
                         break;
                     case "Black":
-                        container = findViewById(R.id.content_container);
-                        container.setBackgroundColor(Color.BLACK);
-                        fontSpinner.setBackgroundColor(Color.BLACK);
-                        colorSpinner.setBackgroundColor(Color.BLACK);
-                        modeSpinner.setBackgroundColor(Color.BLACK);
-                        textSizeSeekBar.setBackgroundColor(Color.BLACK);
-                        brightnessSeekBar.setBackgroundColor(Color.BLACK);
-                        font_seek_des.setBackgroundColor(Color.BLACK);                        font_seek_des.setBackgroundColor(Color.BLACK);
-                        bri_seek_des.setBackgroundColor(Color.BLACK);
+                        cont_container = findViewById(R.id.cont_container);
+                        cont_container.setBackgroundColor(ContextCompat.getColor(ContentActivity.this, R.color.bbb));
+                        content.setTextColor(Color.WHITE);
+                        colorSpinner.setVisibility(View.GONE);
+                        font_sb.setVisibility(View.VISIBLE);
+                        color_sb.setVisibility(View.VISIBLE);
                         break;
-                    default:
-                        container = findViewById(R.id.content_container);
-                        container.setBackgroundColor(Color.WHITE);
-                        fontSpinner.setBackgroundColor(Color.WHITE);
-                        colorSpinner.setBackgroundColor(Color.WHITE);
-                        modeSpinner.setBackgroundColor(Color.WHITE);
-                        textSizeSeekBar.setBackgroundColor(Color.WHITE);
-                        brightnessSeekBar.setBackgroundColor(Color.WHITE);
-                        font_seek_des.setBackgroundColor(Color.WHITE);
-                        bri_seek_des.setBackgroundColor(Color.WHITE);
+                    case "White":
+                        cont_container = findViewById(R.id.cont_container);
+                        cont_container.setBackgroundColor(Color.WHITE);
+                        cont_container.setBackgroundColor(ContextCompat.getColor(ContentActivity.this, R.color.ccc));
+                        content.setTextColor(Color.BLACK);
+                        colorSpinner.setVisibility(View.GONE);
+                        font_sb.setVisibility(View.VISIBLE);
+                        color_sb.setVisibility(View.VISIBLE);
                         break;
                 }
             }
@@ -251,63 +280,53 @@ public class ContentActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedMode = parent.getItemAtPosition(position).toString();
                 switch (selectedMode) {
-                    case "Choose Mode":
-                        Toast.makeText(ContentActivity.this, "Please choose Mode", Toast.LENGTH_SHORT).show();
-                        break;
-                    case "Speed":
+                    case "Casual":
                         Typeface typeface1 = ResourcesCompat.getFont(ContentActivity.this, R.font.newyork);
                         content.setTypeface(typeface1);
-                        container = findViewById(R.id.content_container);
-                        container.setBackgroundColor(Color.WHITE);
-                        fontSpinner.setBackgroundColor(Color.WHITE);
-                        colorSpinner.setBackgroundColor(Color.WHITE);
-                        modeSpinner.setBackgroundColor(Color.WHITE);
-                        textSizeSeekBar.setBackgroundColor(Color.WHITE);
-                        brightnessSeekBar.setBackgroundColor(Color.WHITE);
-                        font_seek_des.setBackgroundColor(Color.WHITE);
-                        bri_seek_des.setBackgroundColor(Color.WHITE);
+                        cont_container = findViewById(R.id.cont_container);
+                        cont_container.setBackgroundColor(Color.WHITE);
+                        cont_container.setBackgroundColor(ContextCompat.getColor(ContentActivity.this, R.color.ccc));
+                        content.setTextColor(Color.BLACK);
                         float brightness = 80 / 100.0f;
                         WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
                         layoutParams.screenBrightness = brightness;
                         getWindow().setAttributes(layoutParams);
-                        content.setTextSize(12);
+                        content.setTextSize(18);
+                        modeSpinner.setVisibility(View.GONE);
+                        font_sb.setVisibility(View.VISIBLE);
+                        color_sb.setVisibility(View.VISIBLE);
                         break;
-                    case "Bionic":
+                    case "Speed":
                         Typeface typeface2 = ResourcesCompat.getFont(ContentActivity.this, R.font.bionic);
                         content.setTypeface(typeface2);
-                        container = findViewById(R.id.content_container);
-                        container.setBackgroundColor(Color.WHITE);
-                        fontSpinner.setBackgroundColor(Color.WHITE);
-                        colorSpinner.setBackgroundColor(Color.WHITE);
-                        modeSpinner.setBackgroundColor(Color.WHITE);
-                        textSizeSeekBar.setBackgroundColor(Color.WHITE);
-                        brightnessSeekBar.setBackgroundColor(Color.WHITE);
-                        font_seek_des.setBackgroundColor(Color.WHITE);
-                        bri_seek_des.setBackgroundColor(Color.WHITE);
+                        cont_container = findViewById(R.id.cont_container);
+                        cont_container.setBackgroundColor(ContextCompat.getColor(ContentActivity.this, R.color.ccc));
+                        content.setTextColor(Color.BLACK);
                         float brightness2 = 80 / 100.0f;
                         WindowManager.LayoutParams layoutParam2 = getWindow().getAttributes();
                         layoutParam2.screenBrightness = brightness2;
                         getWindow().setAttributes(layoutParam2);
-                        content.setTextSize(16);
+                        content.setTextSize(18);
+                        modeSpinner.setVisibility(View.GONE);
+                        font_sb.setVisibility(View.VISIBLE);
+                        color_sb.setVisibility(View.VISIBLE);
                         break;
-                    default:
-                        Typeface typeface4 = ResourcesCompat.getFont(ContentActivity.this, R.font.timesnewroman);
+                    case "In-depth":
+                        Typeface typeface4 = ResourcesCompat.getFont(ContentActivity.this, R.font.helvetica);
                         content.setTypeface(typeface4);
-                        container = findViewById(R.id.content_container);
-                        container.setBackgroundColor(Color.WHITE);
-                        fontSpinner.setBackgroundColor(Color.WHITE);
-                        colorSpinner.setBackgroundColor(Color.WHITE);
-                        modeSpinner.setBackgroundColor(Color.WHITE);
-                        textSizeSeekBar.setBackgroundColor(Color.WHITE);
-                        brightnessSeekBar.setBackgroundColor(Color.WHITE);
-                        font_seek_des.setBackgroundColor(Color.WHITE);
-                        bri_seek_des.setBackgroundColor(Color.WHITE);
+                        cont_container = findViewById(R.id.cont_container);
+                        cont_container.setBackgroundColor(ContextCompat.getColor(ContentActivity.this, R.color.ccc));
+                        content.setTextColor(Color.BLACK);
                         float brightness3 = 80 / 100.0f;
                         WindowManager.LayoutParams layoutParam3 = getWindow().getAttributes();
                         layoutParam3.screenBrightness = brightness3;
                         getWindow().setAttributes(layoutParam3);
-                        content.setTextSize(14);
+                        content.setTextSize(18);
+                        modeSpinner.setVisibility(View.GONE);
+                        font_sb.setVisibility(View.VISIBLE);
+                        color_sb.setVisibility(View.VISIBLE);
                         break;
+
                 }
             }
 
@@ -318,4 +337,74 @@ public class ContentActivity extends AppCompatActivity {
 
 
     }
+    private void performClickAnimation(View view) {
+        view.animate()
+                .scaleX(0.8f)
+                .scaleY(0.8f)
+                .setDuration(200)
+                .withEndAction(() -> view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(200)
+                        .withEndAction(() -> {
+                            fontSpinner.performClick();
+                            fontSpinner.setVisibility(View.VISIBLE);
+                            font_sb.setVisibility(View.GONE);
+                            color_sb.setVisibility(View.GONE);
+                        })
+                        .start())
+                .start();
+    }
+    private void performClickAnimation2(View view) {
+        view.animate()
+                .scaleX(0.8f)
+                .scaleY(0.8f)
+                .setDuration(200)
+                .withEndAction(() -> view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(200)
+                        .withEndAction(() -> {
+                            colorSpinner.performClick();
+                            colorSpinner.setVisibility(View.VISIBLE);
+                            font_sb.setVisibility(View.GONE);
+                            color_sb.setVisibility(View.GONE);
+                        })
+                        .start())
+                .start();
+    }
+    private void performClickAnimation3(View view) {
+        view.animate()
+                .scaleX(0.8f)
+                .scaleY(0.8f)
+                .setDuration(200)
+                .withEndAction(() -> view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(200)
+                        .withEndAction(() -> {
+                            modeSpinner.performClick();
+                            modeSpinner.setVisibility(View.VISIBLE);
+                            font_sb.setVisibility(View.GONE);
+                            color_sb.setVisibility(View.GONE);
+                        })
+                        .start())
+                .start();
+    }
+    private void performClickAnimation4(View view) {
+        view.animate()
+                .scaleX(0.8f)
+                .scaleY(0.8f)
+                .setDuration(200)
+                .withEndAction(() -> view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(200)
+                        .withEndAction(() -> {
+                            menu_container.setVisibility(View.GONE);
+                        })
+                        .start())
+                .start();
+    }
+
 }
