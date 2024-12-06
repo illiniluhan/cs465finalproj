@@ -7,6 +7,18 @@
     android:layout_margin="10dp"
     android:background="@color/white"
     tools:context=".ReadActivity">
+
+    <ImageView
+        android:id="@+id/closeButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/analysis_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Close" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -653,8 +665,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
-                    android:background="@drawable/radio_button_selector"
-                    android:gravity="center"
+                    android:background="@color/radio_button_selector"                    android:gravity="center"
                     android:padding="8dp"
                     android:text="Read" />
 
@@ -664,8 +675,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
-                    android:background="@drawable/radio_button_selector"
-                    android:gravity="center"
+                    android:background="@color/radio_button_selector"                    android:gravity="center"
                     android:padding="8dp"
                     android:text="Import" />
 
@@ -675,12 +685,11 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
-                    android:background="@drawable/radio_button_selector"
-                    android:gravity="center"
+                    android:background="@color/radio_button_selector"                    android:gravity="center"
                     android:padding="8dp"
                     android:text="Analysis" />
             </RadioGroup>
-
         </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
