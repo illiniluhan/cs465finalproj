@@ -9,7 +9,6 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
-    <!-- LinearLayout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -18,28 +17,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation_container"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="16dp">
 
-
-        <ImageView
-            android:id="@+id/logo"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="100dp"
-            android:src="@drawable/upload_logo"
-            android:layout_gravity="center" />
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:fontFamily="@font/helveticabo"
+            android:textSize="40dp"
+            android:textColor="@color/klyblue"
+            android:text="Import" />
 
         <EditText
             android:id="@+id/import_path"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginBottom="28dp"
             android:background="@drawable/textbox_ui"
             android:gravity="center"
-            android:hint="Import your reading here"
+            android:hint="Paste the article link here"
             android:padding="12dp"
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray" />
@@ -48,19 +47,68 @@
             android:id="@+id/submit_path"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginBottom="28dp"
             android:backgroundTint="#4A90E2"
-
             android:elevation="10dp"
-
             android:text="Submit"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
+
+        <!-- Queue layout for multiple articles -->
+        <LinearLayout
+            android:id="@+id/queue_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:padding="16dp"
+            android:background="@android:color/white"
+            android:elevation="4dp">
+
+            <TextView
+                android:id="@+id/queue_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Articles in Queue"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/helveticabo"
+                android:layout_marginBottom="8dp"
+                android:gravity="center" />
+
+            <LinearLayout
+                android:id="@+id/articles_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <!-- Container for actions at the bottom -->
+            <LinearLayout
+                android:id="@+id/actions_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="16dp">
+
+                <Button
+                    android:id="@+id/btn_cancel_article"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="Cancel"
+                    android:textColor="@android:color/white"/>
+
+                <Button
+                    android:id="@+id/btn_import_article"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Import"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
-    <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottom_navigation_container"
         android:layout_width="match_parent"
@@ -116,5 +164,4 @@
                 android:text="Analysis" />
         </RadioGroup>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
