@@ -179,7 +179,7 @@
                 android:textSize="14dp"
                 android:visibility="visible"
                 android:background="@color/white"
-                android:text="    Layout   " />
+                android:text="   Spacing   " />
             <SeekBar
                 android:id="@+id/layoutSeekBar"
                 android:layout_width="wrap_content"

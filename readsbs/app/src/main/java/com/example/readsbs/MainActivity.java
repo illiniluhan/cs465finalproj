@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
         importButton.setOnClickListener(v -> {
             Toast.makeText(MainActivity.this, articleQueue.size() + " articles imported to library!", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this, BookActivity.class));
             clearQueue();
         });
 
@@ -186,4 +187,5 @@ public class MainActivity extends AppCompatActivity {
                         .start())
                 .start();
     }
+
 }
